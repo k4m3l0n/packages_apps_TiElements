@@ -31,6 +31,11 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import android.text.TextUtils;
+import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -39,6 +44,8 @@ import com.android.settings.Utils;
 
 import com.titanium.support.preferences.CustomSeekBarPreference;
 import com.titanium.support.preferences.SecureSettingSwitchPreference;
+import com.titanium.tielements.preferences.AppMultiSelectListPreference;
+import com.titanium.tielements.preferences.ScrollAppsViewPreference;
 
 public class Screen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -49,9 +56,16 @@ public class Screen extends SettingsPreferenceFragment implements
     private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
     private static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
 
+    private static final String KEY_ASPECT_RATIO_APPS_ENABLED = "aspect_ratio_apps_enabled";
+    private static final String KEY_ASPECT_RATIO_APPS_LIST = "aspect_ratio_apps_list";
+    private static final String KEY_ASPECT_RATIO_CATEGORY = "aspect_ratio_category";
+    private static final String KEY_ASPECT_RATIO_APPS_LIST_SCROLLER = "aspect_ratio_apps_list_scroller";
+
     private CustomSeekBarPreference mCornerRadius;
     private CustomSeekBarPreference mContentPadding;
     private SecureSettingSwitchPreference mRoundedFwvals;
+    private AppMultiSelectListPreference mAspectRatioAppsSelect;
+    private ScrollAppsViewPreference mAspectRatioApps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,6 +106,31 @@ public class Screen extends SettingsPreferenceFragment implements
         // Rounded use Framework Values
         mRoundedFwvals = (SecureSettingSwitchPreference) findPreference(SYSUI_ROUNDED_FWVALS);
         mRoundedFwvals.setOnPreferenceChangeListener(this);
+
+        final PreferenceCategory aspectRatioCategory =
+                (PreferenceCategory) getPreferenceScreen().findPreference(KEY_ASPECT_RATIO_CATEGORY);
+        final boolean supportMaxAspectRatio =
+                getResources().getBoolean(com.android.internal.R.bool.config_haveHigherAspectRatioScreen);
+        if (!supportMaxAspectRatio) {
+                getPreferenceScreen().removePreference(aspectRatioCategory);
+        } else {
+        mAspectRatioAppsSelect =
+                (AppMultiSelectListPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST);
+        mAspectRatioApps =
+                (ScrollAppsViewPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST_SCROLLER);
+        final String valuesString = Settings.System.getString(getContentResolver(),
+                Settings.System.ASPECT_RATIO_APPS_LIST);
+        List<String> valuesList = new ArrayList<String>();
+        if (!TextUtils.isEmpty(valuesString)) {
+            valuesList.addAll(Arrays.asList(valuesString.split(":")));
+            mAspectRatioApps.setVisible(true);
+            mAspectRatioApps.setValues(valuesList);
+        } else {
+            mAspectRatioApps.setVisible(false);
+        }
+        mAspectRatioAppsSelect.setValues(valuesList);
+        mAspectRatioAppsSelect.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
@@ -121,6 +160,19 @@ public class Screen extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mRoundedFwvals) {
             restoreCorners();
+            return true;
+        } else if (preference == mAspectRatioAppsSelect) {
+            Collection<String> valueList = (Collection<String>) newValue;
+            mAspectRatioApps.setVisible(false);
+            if (valueList != null) {
+                Settings.System.putString(getContentResolver(),
+                        Settings.System.ASPECT_RATIO_APPS_LIST, TextUtils.join(":", valueList));
+                mAspectRatioApps.setVisible(true);
+                mAspectRatioApps.setValues(valueList);
+            } else {
+                Settings.System.putString(getContentResolver(),
+                Settings.System.ASPECT_RATIO_APPS_LIST, "");
+            }
             return true;
         }
         return false;
