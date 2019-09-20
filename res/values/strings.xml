@@ -614,5 +614,7 @@
     <!-- Navbar options -->
     <string name="three_button_nav_bar">3-button Navigation Options</string>
     <string name="nav_bar_layout">Navigation bar layout</string>
+    <string name="navbar_invert_layout_title">Invert layout</string>
+    <string name="navbar_invert_layout_summary">Use inverted layout for navbar buttons</string>
 
 </resources>

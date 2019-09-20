@@ -46,6 +46,12 @@
            android:entries="@array/nav_bar_layouts"
            android:entryValues="@array/nav_bar_layouts_values" />
 
+        <com.titanium.support.preferences.SecureSettingSwitchPreference
+           android:key="sysui_nav_bar_inverse"
+           android:title="@string/navbar_invert_layout_title"
+           android:summary="@string/navbar_invert_layout_summary"
+           android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
