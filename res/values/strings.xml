@@ -718,4 +718,18 @@
     <!-- Smart notifications -->
     <string name="notification_sound_vib_screen_on_title">Noisy notifications if screen on</string>
     <string name="notification_sound_vib_screen_on_summary">Disable to block notifications sound and vibration when the screen is awake</string>
+
+    <!-- Tiles animation style  -->
+    <string name="qs_tile_animation_category">QS tile</string>
+    <string name="qs_tile_animation_style_title">QS tile animation</string>
+    <string name="qs_tile_animation_duration_title">QS tile animation duration</string>
+    <string name="qs_tile_animation_style_off">Disabled</string>
+    <string name="qs_tile_animation_style_flip">Flip</string>
+    <string name="qs_tile_animation_style_rotate">Rotate</string>
+    <string name="qs_tile_animation_duration_low">Low</string>
+    <string name="qs_tile_animation_duration_default">Default</string>
+    <string name="qs_tile_animation_duration_fast">Fast</string>
+    <string name="qs_set_animation_style">%1$s</string>
+    <string name="qs_set_animation_duration">%1$s</string>
+
 </resources>
