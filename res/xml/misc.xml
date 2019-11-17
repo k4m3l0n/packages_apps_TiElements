@@ -20,6 +20,13 @@
     android:title="@string/menu_misc"
     xmlns:settings="http://schemas.android.com/apk/res-auto">
 
+        <com.titanium.support.preferences.SystemSettingMasterSwitchPreference
+            android:key="gaming_mode_enabled"
+            android:fragment="com.titanium.tielements.fragments.GamingMode"
+            android:title="@string/gaming_mode_title"
+            android:summary="@string/gaming_mode_summary"
+            android:defaultValue="false" />
+
         <com.titanium.support.preferences.SystemSettingSwitchPreference
             android:key="enable_conditions"
             android:title="@string/dashboard_conditions_title"
