@@ -6,6 +6,18 @@
 
     <PreferenceCategory
 
+        android:title="@string/when_to_show_category">
+
+        <com.titanium.support.preferences.SystemSettingSwitchPreference
+            android:key="pulse_on_new_tracks"
+            android:title="@string/pulse_on_new_tracks_title"
+            android:summary="@string/pulse_on_new_tracks_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+
         android:title="@string/doze_brightness_category">
 
         <com.titanium.support.preferences.CustomSeekBarPreference

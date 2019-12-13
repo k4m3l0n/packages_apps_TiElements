@@ -795,4 +795,9 @@
     <string name="use_old_mobiletype_title">Use old mobile type style</string>
     <string name="use_old_mobiletype_summary">Merge signal and type icons</string>
 
+    <!-- Pulse on new tracks -->
+    <string name="when_to_show_category">When to show</string>
+    <string name="pulse_on_new_tracks_title">Music ticker</string>
+    <string name="pulse_on_new_tracks_summary">Wake screen when a new music is played</string>
+
 </resources>
