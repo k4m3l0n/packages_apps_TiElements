@@ -42,9 +42,9 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private static final String TAG = "Lockscreen";
     private static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer_enabled";
     private SecureSettingMasterSwitchPreference mVisualizerEnabled;
-    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
+    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
 
-    private Preference mFODIconPicker;
+    private PreferenceCategory mFODIconPickerCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class Lockscreen extends SettingsPreferenceFragment implements
 
         ContentResolver resolver = getActivity().getContentResolver();
         Resources resources = getResources();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mVisualizerEnabled = (SecureSettingMasterSwitchPreference) findPreference(LOCKSCREEN_VISUALIZER_ENABLED);
         mVisualizerEnabled.setOnPreferenceChangeListener(this);
@@ -62,10 +63,10 @@ public class Lockscreen extends SettingsPreferenceFragment implements
                 LOCKSCREEN_VISUALIZER_ENABLED, 0);
         mVisualizerEnabled.setChecked(visualizerEnabled != 0);
 
-        mFODIconPicker = (Preference) findPreference(FOD_ICON_PICKER_CATEGORY);
-        if (mFODIconPicker != null
+        mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
+        if (mFODIconPickerCategory != null
                 && !getResources().getBoolean(com.android.internal.R.bool.config_supportsInDisplayFingerprint)) {
-            prefScreen.removePreference(mFODIconPicker);
+            prefScreen.removePreference(mFODIconPickerCategory);
         }
     }
 
