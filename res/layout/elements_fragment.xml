@@ -121,16 +121,16 @@
                     android:orientation="horizontal">
 
                     <com.titanium.tielements.views.MenuViews
-                        android:id="@+id/navbar_menu"
+                        android:id="@+id/gestures_menu"
                         android:layout_width="match_parent"
                         android:layout_height="112dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:background="@drawable/bg_nav_bar"
+                        android:background="@drawable/bg_gestures"
                         android:clickable="true"
                         app:icon="@drawable/ic_navigation"
-                        app:title="@string/menu_nav_bar">
+                        app:title="@string/menu_gestures">
                     </com.titanium.tielements.views.MenuViews>
 
                     <com.titanium.tielements.views.MenuViews

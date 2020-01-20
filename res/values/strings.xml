@@ -22,7 +22,7 @@
     <string name="app_background">TiElements Background</string>
     <string name="menu_status_bar">Status Bar</string>
     <string name="menu_lock_screen">Lockscreen</string>
-    <string name="menu_nav_bar">Navigation Bar</string>
+    <string name="menu_gestures">Gestures</string>
     <string name="menu_recent">Recent</string>
     <string name="menu_animations">Animations</string>
     <string name="menu_notifications">Notifications</string>

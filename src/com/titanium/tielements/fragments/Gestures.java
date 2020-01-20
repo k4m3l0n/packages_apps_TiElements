@@ -34,16 +34,16 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.Utils;
 
-public class Navigation extends SettingsPreferenceFragment implements
+public class Gestures extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     
-    private static final String TAG = "Navigation";
+    private static final String TAG = "Gestures";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.navigation);
+        addPreferencesFromResource(R.xml.gesture);
         setRetainInstance(true);
 
         ContentResolver resolver = getActivity().getContentResolver();
