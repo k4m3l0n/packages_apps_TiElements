@@ -5,6 +5,18 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
+       
+        android:title="Themes"
+
+        <Preference
+            android:key="theme_room"
+            android:title="@string/themeroom_title"
+            android:summary="@string/themeroom_summary"
+            android:fragment="com.evolution.settings.display.ThemeRoom" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
 
         android:key="corners_category"
         android:title="@string/corners_category_title">

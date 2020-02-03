@@ -888,5 +888,10 @@
     <string name="pulse_ambient_light_show_always_title">Show for all doze events</string>
     <string name="pulse_ambient_light_show_always_summary">Show lights for all doze events and not just notifications</string>
 
-</resources>
+    <!-- RGB Accent Picker -->
+    <string name="themeroom_title">Theme Room</string>
+    <string name="themeroom_summary">Accent-Gradient theming</string>
+    <string name="accent_color">Accent picker</string>
+    <string name="accent_summary">System wide accent picker</string>
 
+</resources>
