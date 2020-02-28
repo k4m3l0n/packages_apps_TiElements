@@ -15,7 +15,7 @@
         android:layout="@layout/github_card">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="http://github.com/Titanium-OS" />
+            android:data="http://github.com/TitaniumOS" />
     </Preference>
 
     <Preference

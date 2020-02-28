@@ -68,7 +68,7 @@ public class Maintainers extends SettingsPreferenceFragment implements Preferenc
     private static final String TAG = "Maintainers";
     private static final String REQUEST_TAG = "loadDeviceList";
     private static final String ANDROID_VERSION_TAG = "ten";
-    private static final String URL = "https://raw.githubusercontent.com/Titanium-OS-Devices/official_devices/master/devices.json";
+    private static final String URL = "https://raw.githubusercontent.com/TitaniumOS-Devices/official_devices/master/devices.json";
     private static final String DOWNLOAD_WEBSITE = "https://downloads.titaniumandroidos.com";
     private static final String SHARED_PREF_NAME = "titanium";
     private static final int MENU_RELOAD  = 0;
